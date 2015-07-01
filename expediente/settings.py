@@ -39,7 +39,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'busqueda',
-    'django_tables2',
 )
 
 MIDDLEWARE_CLASSES = (
