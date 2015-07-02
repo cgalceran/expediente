@@ -67,7 +67,9 @@ class Command(BaseCommand):
 				item, created = Item.objects.get_or_create(expediente=each, fecha_recepcion=fecha_recepcion, fecha_envio=fecha_destino,
 														   destino=busqueda['Destino'], origen=busqueda['Origenes'])
 				if created:
-					print 'pude crear algo en la base de datos'
+					print 'Se crearon datos en la base sobre el expediente: %s' % each.name
+				else:
+				    print 'El expediente %s no tuvo movimiento' % each.name
 			
 			except IndexError:
 				continue         
