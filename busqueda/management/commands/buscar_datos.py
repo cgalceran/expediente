@@ -1,13 +1,11 @@
 #modulos que sirven para hacer el management command
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from busqueda.models import Expediente, Item
 
 #Modulos que sirven para importar los datos 
 from busqueda.latin_to_ascii import latin1_to_ascii
 import requests
 from bs4 import BeautifulSoup
-from django.template.loader import get_template
-from django.template import Context
 from datetime import datetime
 import time
 
