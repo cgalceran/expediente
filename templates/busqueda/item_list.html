@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="360">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     
     <title>Ministerio de Planificacion</title>
@@ -60,7 +61,7 @@
             <td> {{ items.distribuidora}} </td>
             <td> {{ items.name}} </td>
             <td align="center"> {{ items.rendicion}} </td>
-            <td class="price"> {{ items.total}} </td>
+            <td class="price" style="font-size:9px;"> {{ items.total}} </td>
             <td> {{ items.items.all.0.destino}} </td>
             <td> {{ items.items.all.0.fecha_recepcion }} </td>
             <td align="center"> {{ items.items.all.0.fecha_recepcion|calculate_days_at_location }} </td>
@@ -71,7 +72,7 @@
             <td> {{ items.distribuidora}} </td>
             <td> {{ items.name}} </td>
             <td align="center"> {{ items.rendicion}} </td>
-            <td class="price"> {{ items.total}} </td>
+            <td class="price" style="font-size:9px;"> {{ items.total}} </td>
             <td> {{ items.items.all.0.destino}} </td>
             <td> {{ items.items.all.0.fecha_recepcion }} </td>
             <td align="center"> {{ items.items.all.0.fecha_recepcion|calculate_days_at_location }} </td>
