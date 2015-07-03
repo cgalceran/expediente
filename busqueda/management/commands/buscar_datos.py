@@ -14,7 +14,12 @@ import time
 #Get the Page making a POST request with the Requests Module
 #---------------------------------------------------------------------------------------------------
 def busqueda_tabla(expediente):
-	payload = {'cudap': '%s' % expediente,
+	if len(expediente)==10:
+		expediente = '00'+expediente
+	elif len(expediente)==11:
+		expediente = '0'+expediente	
+
+	payload = {'cudap': 'EXP-S01:'+'%s' % expediente,
 			   'seach': 'Buscar',
 			   'isNew':'true'}
 	req = requests.post("http://expedientes.mecon.gov.ar/finddoc2/finddoc/VerExpediente", data=payload)
@@ -72,31 +77,7 @@ class Command(BaseCommand):
 				    print 'El expediente %s no tuvo movimiento' % each.name
 			
 			except IndexError:
-				continue         
-			
-			
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+				continue   
 
 
 
