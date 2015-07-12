@@ -66,9 +66,10 @@ class Command(BaseCommand):
 					time.sleep(15)
 					auxiliar = 0
 				fecha_destino = self.parse_date(busqueda['Fecha de envio'])
-				fecha_recepcion = self.parse_date(busqueda['Fecha de recepcion'])
 				if busqueda['Fecha de recepcion'] == SinTransferir:
 					continue
+				else:
+				fecha_recepcion = self.parse_date(busqueda['Fecha de recepcion'])	
 				item, created = Item.objects.get_or_create(expediente=each, fecha_recepcion=fecha_recepcion, fecha_envio=fecha_destino,
 														   destino=busqueda['Destino'], origen=busqueda['Origenes'])
 				if created:
