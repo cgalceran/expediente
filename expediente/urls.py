@@ -22,6 +22,6 @@ from busqueda.views import ListadoExpedientes
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', ListadoExpedientes.as_view(), name='listado')
-    #url(r'^tabla', views.tablaexp, name='tabla')
-] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    url(r'^convergencia', ListadoExpedientes.as_view(), name='convergencia')
+    #url(r'^gas', ListadoExpedientes.as_view(), name='gas')
+] 

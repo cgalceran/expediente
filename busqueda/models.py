@@ -10,13 +10,12 @@ class PermisoExpediente(models.Model):
         return u'%s-%s' % (self.usuario, [tema for tema in self.temas.all()])
 
 class Tema(models.Model):
-    name = models.CharField(max_length=255, default='Convergencia')
+    name = models.CharField(max_length=255,null=True)
 
     def __unicode__(self):
         return u'%s' % (self.name)
 
 class Provincia(models.Model):
-    tema = models.ForeignKey(Tema)
     name = models.CharField(max_length=255)
 
     def __unicode__(self):
@@ -30,12 +29,13 @@ class Distribuidora(models.Model):
         return u'%s' % (self.name)
 
 class Expediente(models.Model):
-    #provincia = models.ForeignKey(Provincia, null=True)
+    tema = models.ForeignKey(Tema,null=True)
     distribuidora = models.ForeignKey(Distribuidora)
     name = models.CharField(max_length=20)
     rendicion = models.CharField(max_length=255, null=True)
     total = models.IntegerField(default=0)
-    nota = models.CharField(max_length=255, null=True)
+    apertura = models.DateField()
+    nota = models.CharField(max_length=255, null=True, blank=True)
 
     def __unicode__(self):
         return u'%s - %s - %s - %s' % (self.distribuidora, self.name, self.rendicion, self.nota)        
@@ -45,7 +45,7 @@ class Item(models.Model):
     origen = models.CharField(max_length=255)
     destino = models.CharField(max_length=255)
     fecha_envio = models.DateTimeField()
-    fecha_recepcion = models.DateTimeField()
+    fecha_recepcion = models.DateTimeField(blank=True,null=True)
 
     def __unicode__(self):
             return u'%s - %s - %s' % (self.expediente, self.destino, self.fecha_recepcion)
@@ -55,6 +55,5 @@ class Item(models.Model):
         ordering = ['expediente__distribuidora__provincia', 'expediente', '-fecha_recepcion']
 
         
-
 
 

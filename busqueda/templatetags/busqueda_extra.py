@@ -7,8 +7,14 @@ register = template.Library()
 
 @register.filter
 def calculate_days_at_location(value):	
-	total = date.today() - value.date()
-	return total.days 
+	if value != None:
+		total = date.today() - value.date()
+		total = total.days
+	else:
+		total = 0		
+	return total
+
+	 
 
 @register.filter
 def if_not_empty(value):
@@ -17,3 +23,11 @@ def if_not_empty(value):
 	else:
 		return value
 
+@register.filter
+def days_since_creation(value):
+	if value != None:
+		total = date.today() - value
+		total = total.days
+	else:
+		total = 0		
+	return total
